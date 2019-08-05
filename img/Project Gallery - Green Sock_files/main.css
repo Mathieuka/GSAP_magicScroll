@@ -57,8 +57,8 @@ textarea {
    ========================================================================== */
 
 
-.body{
-    font: 16px/1.5 "Open Sans", Helvetica, Helvetica Neue, Arial, sans-serif;
+body {
+    font: 16px/1.5 'Open Sans', Helvetica, Helvetica Neue, Arial, sans-serif;
     background-color: #2e2e30;
     color: #222;
     overflow-x: hidden;
@@ -66,20 +66,62 @@ textarea {
     transition: background-color 0.4s linear;
 }
 
-body.project01 { background-color: #4d5126};
-body.project02 { background-color: #a8b183};
-body.project03 { background-color: #988685};
+body.project01 { background-color: #4d5126;}
+body.project02 { background-color: #a8b183;}
+body.project03 { background-color: #988685;}
 
 h1, h2, h3, h4 {
     font-weight: 700
 }
 
+.wrapper {
+    width: 90%;
+    margin: 0 auto
+}
 
+/* =Project Slides */
 
+.project {
+    text-align: center;
+    position:fixed;
+    /* top: 50%; */
+    left: 0%;
+    bottom: 0%;
+    right: 0%;
+    transform: translateY(-50%);
+}
 
+.project-image,
+.project-image:before,
+.project-image img{
+    border-radius: 100%;
+}
 
+.project-image:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(242, 236, 189, 0.8);
+    top: -4px;
+    left: -4px;
+    z-index: 2;
+}
 
+.project-image {
+    position: relative;
+    width: 224px;
+    height: 224px;
+    margin: auto;
+    z-index: 5;
+}
 
+.project-image img {
+    position: relative;
+    z-index: 4;
+    display: block;
+}
 
 
 
