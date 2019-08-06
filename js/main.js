@@ -40,13 +40,29 @@
     */
     /*
         * staggedFromTo()
-              simply loops through the targets array and creates a fromTo()
+              simply loops through the targets array elements and creates a fromTo()
               tween for each object and then inserts it at the appropriate place
 
     */
+    /*
+        * add()
+            function add("label") is like a flag
+            https://greensock.com/docs/TimelineMax/add
+    */
     tlProject
-        .set([$projectTitle,$projectSubtitle,$pixel], {autoAlpha: 0}) // autoAlpha: 0 is mean set element invisible
-        .fromTo($projectImage, 1,{autoAlpha: 0, xPercent: "-200"},{autoAlpha: 1, xPercent:"-10", ease: Power4.easeInOut}, 0)
-        .add("imageIn") // add label just after the the precedent animation is finish
-        .staggerFromTo($pixel, 0.2, {autoAlpha: 0, xPercent: "-=10"}, {autoAlpha: 1, x: "0", ease: Bounce.easeInOut, x: -10}, 0.20)
+        .set([$projectTitle,$projectSubtitle,$pixel], {autoAlpha: 0}) // IMPORTANT: autoAlpha: 0 is mean set element invisible when the application start
+        .fromTo($projectImage, 0.4,{autoAlpha: 0, xPercent: "-200"},{autoAlpha: 1, xPercent: "-10", ease: Power4.easeInOut})
+        .add("imageIn") // add label just after the precedent animation is finish
+        .staggerFromTo($pixel, 0.3, {autoAlpha: 0, xPercent: "-=10"}, {autoAlpha: 1, x: "0", ease: Power4.easeInOut}, 0.02)
+        .add("pixelsIn")
+        .fromTo($projectTitle, 0.7, {autoAlpha: 0, xPercent: "-50"}, {autoAlpha: 1, xPercent: "-5", ease:  Power4.easeInOut, x: 0})
+        .fromTo($projectSubtitle, 0.7, {autoAlpha: 0, xPercent: "-50"}, {autoAlpha: 1, xPercent: "-2", ease: Power4.easeInOut})
+        .add("titleIn")
+        .to($projectTitle, 2, {xPercent: "+=5", ease: Linear.easeNone})
+        .to($projectSubtitle, 2, {xPercent: "+=2", ease: Linear.easeNone})
+        .add("titleOut")
+        .to($projectImage,3 , {xPercent: "+=10", ease: Linear.easeNone})
+        .add("imageOut")
+        .to($pixels, 2, {x: "-5", ease:Linear.easeNone})
+        .to([$projectTitle, $projectSubtitle], 0.5, {autoAlpha: 0, xPercent: "+=10", ease: Power4.easeInOut}); // manipulate two element with an array
 })(jQuery);
