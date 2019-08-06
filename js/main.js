@@ -61,9 +61,9 @@
         .to($projectTitle, 4.3, {xPercent: "+=5", ease: Linear.easeNone}, "titleIn-=0.1")     // "titleIn-=0.1" mean this tween happen 0.1 second earlier before .add("titleIn") is defined
         .to($projectSubtitle, 4.3, {xPercent: "+=2", ease: Linear.easeNone}, "titleIn-=0.2") // "titleIn-=0.1" mean this tween happen 0.1 second earlier before .add("titleIn") is defined
         .add("titleOut")
-        .to($projectImage,3 , {xPercent: "+=10", ease: Linear.easeNone})
+        .to($projectImage,3 , {xPercent: "+=10", ease: Linear.easeNone}, "imageIn") // start to slide to the right at the moment when the label "imageIn" is defined
         .add("imageOut")
-        .to($pixels, 2, {x: "-5", ease:Linear.easeNone})
-        .to([$projectTitle, $projectSubtitle], 0.5, {autoAlpha: 0, xPercent: "+=10", ease: Power4.easeInOut}) // manipulate two element with an array
-        .to($projectImage, 0.4, {autoAlpha: 0, xPercent: "+=80", ease: Power4.easeInOut}); // manipulate two element with an array
+        .to($pixels, 3, {x: "-15", ease:Linear.easeNone}, "pixelsIn") // start to slide to the left at the moment when the label "pixelIn" is defined
+        .to([$projectTitle, $projectSubtitle], 0.5, {autoAlpha: 0, xPercent: "+=10", ease: Power4.easeInOut},"titleOut") // manipulate two element with an array
+        .to($projectImage, 0.4, {autoAlpha: 0, xPercent: "+=80", ease: Power4.easeInOut},"imageOut"); // manipulate two element with an array
 })(jQuery);
