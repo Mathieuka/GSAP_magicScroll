@@ -21,9 +21,10 @@
               $projectImage => domElement
               0.5           => speed of animation move
               autoAlpha     => visibility of image when the animation start
-              xPercent      => the point of start displacement of the element about to its X axis
+              xPercent      => the point of start displacement of the element about to its X axis origin
 
     */
-    tlProject.fromTo($projectImage, 0.5, {autoAlpha: 0, xPercent: '-400'}, {autoAlpha: 1, xPercent:"-10"})
+    tlProject.fromTo($projectImage, 0.5, {autoAlpha: 0, xPercent: "-200", yPercent: "-100"}, {autoAlpha: 1, xPercent:"-10", yPercent: "-20"})
+    tlProject.fromTo($projectImage, 0.5,  {autoAlpha: 1, xPercent:"-10", yPercent: "-20"}, {autoAlpha: 0, xPercent: "-200", yPercent: "-100"})
 
 })(jQuery);
